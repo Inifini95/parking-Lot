@@ -1,0 +1,4 @@
+/Users/abhishek/projects/url_shortner/build/CMakeFiles/url_shortener.dir
+/Users/abhishek/projects/url_shortner/build/CMakeFiles/test.dir
+/Users/abhishek/projects/url_shortner/build/CMakeFiles/edit_cache.dir
+/Users/abhishek/projects/url_shortner/build/CMakeFiles/rebuild_cache.dir

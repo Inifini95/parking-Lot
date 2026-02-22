@@ -1,0 +1,1 @@
+/usr/bin/clang++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/url_shortener.dir/src/main.cpp.o -o url_shortener   -L/opt/homebrew/lib  -L/opt/homebrew/Cellar/libpqxx/7.10.5/lib  -L/opt/homebrew/Cellar/libpq/18.1/lib
