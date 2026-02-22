@@ -1,118 +1,49 @@
-# URL Shortener - C++ Project
+# Parking Lot System Documentation
 
-A modular C++ URL shortener application with a layered architecture.
+## Overview
+The Parking Lot System is designed to manage the parking availability, reservations, and payment processing for vehicles in a parking facility.
 
-## Project Structure
+## Features
+- **Vehicle Entry and Exit**: Record the entry and exit times of vehicles.
+- **Real-time Availability**: Monitor the number of parking spots available at any time.
+- **Reservation System**: Users can reserve a parking space in advance.
+- **Payment Integration**: Seamless payment processing for parking fees.
+- **Administrative Dashboard**: Allows administrators to view analytics and manage the parking lot's operations.
 
-```
-url_shortener/
-├── CMakeLists.txt              # Build configuration
-├── include/
-│   ├── api/
-│   │   └── url_shortener_api.h        # REST API wrapper layer
-│   ├── service/
-│   │   └── url_shortener_service.h    # Business logic / Service layer
-│   └── implementation/
-│       └── url_shortener_impl.h       # Core implementation layer
-├── src/
-│   ├── main.cpp                       # Entry point
-│   ├── url_shortener_api.cpp          # API implementation
-│   ├── url_shortener_service.cpp      # Service implementation
-│   └── url_shortener_impl.cpp         # Implementation (logic to fill)
-└── README.md                   # This file
-```
+## User Guide
+### Getting Started
+1. **Installation**: Instructions for installing the system will go here.
+2. **Configuration**: Details on how to configure the system.
 
-## Architecture
+### Usage
+1. **Entering the Parking Lot**: Step-by-step instructions for entering a parking lot with the system.
+2. **Exiting the Parking Lot**: Step-by-step instructions for exiting a parking lot.
+3. **Making a Reservation**: How users can reserve spots.
+4. **Admin Functions**: Overview of the features available to administrators.
 
-### 1. **API Layer** (`include/api/url_shortener_api.h`)
-   - REST API wrapper that handles HTTP requests/responses
-   - Provides endpoints for creating and retrieving shortened URLs
-   - Handles request/response serialization (JSON)
-   - Contains error handling and status codes
+## System Requirements
+- A server to host the application
+- Database system (e.g., MySQL, PostgreSQL)
+- Web server (e.g., Apache, Nginx)
 
-### 2. **Service Layer** (`include/service/url_shortener_service.h`)
-   - Business logic and validation
-   - URL validation
-   - Acts as an intermediary between API and implementation
-   - Provides error handling and exception throwing
+## API Endpoints
+### Vehicle Entry
+- **Endpoint**: `POST /api/entry`
+- **Description**: Records a new vehicle entry into the system.
 
-### 3. **Implementation Layer** (`include/implementation/url_shortener_impl.h`)
-   - Core URL shortening algorithm (empty for you to implement)
-   - `shortenURL()` - Convert long URLs to short codes
-   - `expandURL()` - Convert short codes back to original URLs
+### Vehicle Exit
+- **Endpoint**: `POST /api/exit`
+- **Description**: Records the exit of a vehicle.
 
-## Building the Project
+### Check Availability
+- **Endpoint**: `GET /api/availability`
+- **Description**: Returns the current number of available parking spaces.
 
-### Prerequisites
-- CMake (version 3.10 or higher)
-- C++17 compatible compiler (g++, clang, or MSVC)
+## Conclusion
+The Parking Lot System streamlines the management of parking facilities and enhances user experience by providing convenient features for both users and administrators. 
 
-### Build Steps
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```bash
-# Navigate to project directory
-cd url_shortener
-
-# Create build directory
-mkdir build
-cd build
-
-# Generate build files
-cmake ..
-
-# Compile
-cmake --build .
-
-# Run the application
-./url_shortener
-```
-
-## TODO: Implement the Shortening Logic
-
-In [src/url_shortener_impl.cpp](src/url_shortener_impl.cpp), implement:
-
-1. **`shortenURL(const std::string& original_url)`**
-   - Implement your URL shortening algorithm
-   - Store the mapping between short code and original URL
-   - Return the generated short code
-
-2. **`expandURL(const std::string& short_code)`**
-   - Retrieve the original URL from the short code
-   - Return the original URL or empty string if not found
-
-### Suggested Approaches
-
-- **Hash-based**: Hash the URL and encode it
-- **Base62 Encoding**: Use auto-incrementing IDs with base62 encoding
-- **In-memory Map**: Store URL mappings in a `std::map<std::string, std::string>`
-- **Database-backed**: Integrate with SQLite for persistence
-
-## Example Usage
-
-```cpp
-URLShortenerAPI api;
-
-// Create a short URL
-std::string response = api.handleCreateShortURL(R"({"url": "https://example.com"})");
-
-// Get original URL
-std::string original = api.handleGetOriginalURL("abc123");
-
-// Health check
-std::string health = api.healthCheck();
-```
-
-## Dependencies
-
-- Standard C++ Library (STL)
-- No external dependencies (uses only standard library for basic implementation)
-
-## Future Enhancements
-
-- Integrate a proper JSON library (e.g., nlohmann/json)
-- Add HTTP server (e.g., cpp-httplib, Boost.Asio)
-- Implement database persistence (SQLite, MySQL)
-- Add unit tests
-- Add configuration management
-- Implement URL analytics and expiration
-- Add rate limiting and authentication
+## Acknowledgements
+- Thanks to all contributors to this project.
